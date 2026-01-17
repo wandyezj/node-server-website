@@ -1,17 +1,13 @@
 {
   "name": "server-website",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "A node backed server website",
   "author": "wandyezj",
   "license": "Unlicense",
-  "main": "index.js",
   "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wandyezj/node-server-website.git"
-  },
-  "directories": {
-    "doc": "docs"
   },
   "bugs": {
     "url": "https://github.com/wandyezj/node-server-website/issues"
