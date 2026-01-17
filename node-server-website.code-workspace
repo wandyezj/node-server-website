@@ -1,0 +1,24 @@
+{
+    "folders": [
+        {
+            "path": ".",
+        },
+        {
+            "path": "src/client",
+        },
+        {
+            "path": "src/server",
+        },
+    ],
+    "settings": {
+        "terminal.integrated.defaultProfile.windows": "Command Prompt",
+        "extensions.ignoreRecommendations": true,
+        "terminal.integrated.cwd": "${workspaceFolder:.}",
+        "files.associations": {
+            "*.json": "jsonc",
+        },
+        "workbench.editorAssociations": {
+            "*.svg": "default",
+        },
+    },
+}
