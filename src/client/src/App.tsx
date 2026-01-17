@@ -17,7 +17,6 @@ export function App() {
                 }}
             >
                 <h1>Welcome to the Node Server Website</h1>
-                
             </div>
         </FluentProvider>
     );
