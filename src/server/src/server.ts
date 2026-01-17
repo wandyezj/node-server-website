@@ -3,12 +3,12 @@ import config from "./config.json";
 console.log("Starting server...");
 
 function gracefulShutdown() {
-  console.log('Shutdown signal received. Closing server...');
-  process.exit(0);
+    console.log("Shutdown signal received. Closing server...");
+    process.exit(0);
 }
 
 // Ctrl + C
-process.on('SIGINT', gracefulShutdown);
+process.on("SIGINT", gracefulShutdown);
 
 // Server Setup
 const server = http.createServer((request, response) => {
@@ -37,5 +37,3 @@ const port = process.env.PORT || config.port;
 console.log(`Server is listening on port ${port}`);
 
 server.listen(port);
-
-
