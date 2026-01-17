@@ -1,0 +1,26 @@
+{
+    "name": "server",
+    "version": "0.0.0",
+    "description": "Server code",
+    "private": true,
+    "scripts": {
+        "clean": "node ../../scripts/clean.js dist",
+        "compile": "webpack --config ./config/webpack.config.js --mode production",
+        "watch-compile": "webpack --config ./config/webpack.config.js --mode development --watch",
+        "watch-server": "node --watch ./dist/index.bundle.js",
+        "start": "npm run watch-compile & npm run watch-server",
+        "ping": "ts-node ./scripts/ping.ts"
+    },
+    "author": "wandyezj",
+    "license": "Unlicense",
+    "devDependencies": {
+        "@types/node": "^25.0.0",
+        "clean-webpack-plugin": "^4.0.0",
+        "office-addin-dev-certs": "^2.0.6",
+        "ts-loader": "^9.5.4",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.9.3",
+        "webpack": "^5.104.1",
+        "webpack-cli": "^6.0.1"
+    }
+}
