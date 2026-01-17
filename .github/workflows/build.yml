@@ -7,19 +7,6 @@ on:
   # Reusable Workflow
   workflow_call:
 
-    inputs:
-      # Run end to end tests
-      test:
-        required: false
-        type: boolean
-        default: false
-
-      # Upload built files as static artifact
-      upload:
-        required: false
-        type: boolean
-        default: false
-
 jobs:
   build:
     timeout-minutes: 10
