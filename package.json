@@ -1,0 +1,32 @@
+{
+  "name": "server-website",
+  "version": "1.0.0",
+  "description": "A node backed server website",
+  "author": "wandyezj",
+  "license": "Unlicense",
+  "main": "index.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wandyezj/node-server-website.git"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "bugs": {
+    "url": "https://github.com/wandyezj/node-server-website/issues"
+  },
+  "homepage": "https://github.com/wandyezj/node-server-website#readme",
+  "scripts": {
+    "clean": "node ./scripts/clean.js dist",
+    "style": "prettier --config ./config/prettier.json  --write \"@(src|tests|scripts|manifests)/**/*.@(ts|tsx|js|md|html|css|json|jsonc)\"",
+    "style-check": "prettier --config ./config/prettier.json  --check \"@(src|tests|scripts|manifests)/**/*.@(ts|tsx|js|md|html|css|json|jsonc)\"",
+    "spell-check": "cspell --config ./.vscode/cspell.json --gitignore \"@(src|tests|scripts)/**/*.@(ts|tsx|js|md|html|css|json|jsonc)\"",
+    "lint": "",
+    "compile": ""
+  },
+  "dependencies": {
+    "cspell": "^9.6.0",
+    "prettier": "^3.8.0"
+  }
+}
