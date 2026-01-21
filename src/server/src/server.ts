@@ -1,5 +1,7 @@
 import * as http from "http";
 import config from "./config.json";
+import { FunctionRequestHandler, FunctionRequestMatcher, handleRequest } from "./handleRequest";
+import { getMatcher } from "./getMatcher";
 console.log("Starting server...");
 
 function gracefulShutdown() {
@@ -10,23 +12,35 @@ function gracefulShutdown() {
 // Ctrl + C
 process.on("SIGINT", gracefulShutdown);
 
+export const registry: [FunctionRequestMatcher, FunctionRequestHandler][] = [
+    [
+        // Ping
+        getMatcher({ method: "GET", url: "/ping" }),
+        (request, response) => {
+            response.writeHead(200, { "Content-Type": "text/plain" });
+            response.write("pong");
+            response.end();
+        },
+    ],
+];
+
 // Server Setup
 const server = http.createServer((request, response) => {
     const method = request.method;
     const url = request.url;
-    const test = process.env["TEST"];
+    //const test = process.env["TEST"];
     const origin = request.headers.origin;
 
-    // bounce back response
-    response.writeHead(200, { "Content-Type": "text/plain" });
-    response.write(`Hello World!
-${method}
-${url}
-${origin}
-${test || ""}
+    console.log(`Received request: ${method} ${url} from ${origin}`);
 
-`);
-    response.end();
+    try {
+        handleRequest(registry, request, response);
+    } catch (error) {
+        console.error("Error handling request:", error);
+        response.writeHead(500, { "Content-Type": "text/plain" });
+        response.write("Internal Server Error");
+        response.end();
+    }
 });
 
 //
